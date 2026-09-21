@@ -2,6 +2,15 @@
   "name": "vinayaka-football",
   "version": "1.0.0",
   "private": true,
-  "scripts": {"dev": "vite", "build": "vite build", "preview": "vite preview"},
-  "devDependencies": {"vite": "^5.4.0"}
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
 }
