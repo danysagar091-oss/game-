@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Vinayaka Football - A Vinayaka Chavithi Festival Special game featuring Lord Ganesha, Kartikeya, Krishna, and Hanuman. Play divine football!">
+  <title>Vinayaka Football</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;0,900;1,900&family=Rozha+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<section class="scr" id="MAIN_MENU" style="justify-content:flex-start;padding-top:3vh;gap:1vh">
+  <div class="bdg">VINAYAKA CHAVITHI<br>FESTIVAL SPECIAL</div>
+  <div id="ic">
+    <button class="ib" data-a="mon"><span id="mi">&#x1F50A;</span> MUSIC</button>
+    <button class="ib" data-a="sett">&#x2699;&#xFE0F; SETTINGS</button>
+  </div>
+  <h1 style="margin-top:2vh">VINAYAKA</h1>
+  <h2>FOOTBALL</h2>
+  <p class="sub">PLAY &#x1F3AE; LEARN &#x1F4DA; CELEBRATE &#x1F389;</p>
+  <p class="sm">4 DIVINE HEROES &#x2728; 5 CHALLENGES &#x1F3C6; 1 FESTIVAL &#x1FA94;</p>
+  <button class="b" data-a="start" style="margin-top:1vh">START</button>
+</section>
+
+<section class="scr dim" id="GAME_MENU">
+  <h3>VINAYAKA FOOTBALL</h3>
+  <button class="mc" data-a="match"><span>&#x26BD;</span>START MATCH</button>
+  <button class="mc" data-a="chars"><span>&#x1F465;</span>CHARACTERS</button>
+  <button class="mc" data-a="sett"><span>&#x2699;&#xFE0F;</span>SETTINGS</button>
+  <button class="b s" data-a="back">&#x2190; BACK</button>
+</section>
+
+<section class="scr dim" id="CHARACTER_SELECT" style="gap:.6vh">
+  <h3>CHOOSE YOUR HERO</h3>
+  <div id="car"></div>
+  <div id="info"></div>
+  <div class="rw">
+    <button class="b s" data-a="prev">&#x2190; PREVIOUS</button>
+    <button class="b s" data-a="next">NEXT &#x2192;</button>
+  </div>
+  <div class="rw">
+    <button class="b s" data-a="sel">SELECT HERO</button>
+    <button class="b s" data-a="back">BACK</button>
+  </div>
+</section>
+
+<section class="scr dim" id="SETTINGS">
+  <div class="pn">
+    <h3>SETTINGS</h3>
+    <div class="row"><label>MUSIC</label><input type="range" id="mus" min="0" max="100"><output id="musv"></output></div>
+    <div class="row"><label>THEME MUSIC</label><input type="range" id="thm" min="0" max="100"><output id="thmv"></output></div>
+    <div class="row"><label>SOUND EFFECTS</label><input type="range" id="sfx" min="0" max="100"><output id="sfxv"></output></div>
+    <div class="row"><label>AUDIO</label><button class="b s mt" data-a="mon"></button></div>
+    <div class="row"><label>FULLSCREEN</label><button class="b s" data-a="fs" id="fsb">OFF</button></div>
+    <div class="row"><label>DIFFICULTY</label>
+      <div class="seg">
+        <button class="b s" data-a="diff" data-d="EASY">EASY</button>
+        <button class="b s" data-a="diff" data-d="NORMAL">NORMAL</button>
+        <button class="b s" data-a="diff" data-d="HARD">HARD</button>
+      </div>
+    </div>
+    <div class="rw">
+      <button class="b s" data-a="reset">RESET SETTINGS</button>
+      <button class="b s" data-a="back">BACK</button>
+    </div>
+  </div>
+</section>
+
+<section class="scr dim" id="MATCH_INTRO">
+  <div id="vs">
+    <div>PLAYER<canvas id="v1" width="180" height="220"></canvas><b id="n1"></b></div>
+    <span>VS</span>
+    <div>BOT<canvas id="v2" width="180" height="220"></canvas><b id="n2"></b></div>
+  </div>
+</section>
+
+<section class="scr dim" id="PAUSED">
+  <div class="pn">
+    <h3>PAUSED</h3>
+    <button class="mc" data-a="resume">&#x25B6; RESUME</button>
+    <button class="mc" data-a="sett">&#x2699;&#xFE0F; SETTINGS</button>
+    <button class="mc" data-a="restart">&#x21BA; RESTART MATCH</button>
+    <button class="mc" data-a="menu">&#x1F3E0; MAIN MENU</button>
+  </div>
+</section>
+
+<section class="scr dim" id="MATCH_RESULT">
+  <div class="pn">
+    <h3>MATCH COMPLETE</h3>
+    <div id="rs" style="font-size:clamp(16px,3.6vh,28px);font-weight:900"></div>
+    <h1 id="rt" style="font-size:clamp(30px,9vh,70px)"></h1>
+    <div class="rw">
+      <button class="b s" data-a="again">PLAY AGAIN</button>
+      <button class="b s" data-a="menu">MAIN MENU</button>
+    </div>
+  </div>
+</section>
+
+<div id="hud">
+  <div id="sb"><b id="s1">0</b><span id="tm">01:00</span><b id="s2">0</b></div>
+  <div id="nm"><span id="hn1"></span><span id="hn2"></span></div>
+  <div id="spb"><i></i></div>
+  <button class="ib" id="pb" data-a="pause">&#x23F8;</button>
+  <div id="tc">
+    <div>
+      <button data-k="l">&#x2190;</button>
+      <button data-k="r">&#x2192;</button>
+    </div>
+    <div>
+      <button data-k="u">&#x2191;</button>
+      <button data-k="k">&#x26BD;</button>
+      <button data-k="x">&#x2728;</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
